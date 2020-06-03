@@ -1,0 +1,11 @@
+E:\УНИВЕР\КСиС\chat\ChatServer\obj\Debug\ChatServer.csprojAssemblyReference.cache
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\ChatServer.exe.config
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\ChatServer.exe
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\ChatServer.pdb
+E:\УНИВЕР\КСиС\chat\ChatServer\obj\Debug\ChatServer.exe
+E:\УНИВЕР\КСиС\chat\ChatServer\obj\Debug\ChatServer.pdb
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\CSfunction.dll
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\CSfunction.pdb
+E:\УНИВЕР\КСиС\chat\ChatServer\obj\Debug\ChatServer.csproj.CopyComplete
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\Database1.mdf
+E:\УНИВЕР\КСиС\chat\ChatServer\bin\Debug\Database1_log.ldf

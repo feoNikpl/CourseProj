@@ -1,0 +1,12 @@
+E:\УНИВЕР\КСиС\chat\ChatClient\bin\Debug\ChatClient.exe.config
+E:\УНИВЕР\КСиС\chat\ChatClient\bin\Debug\ChatClient.exe
+E:\УНИВЕР\КСиС\chat\ChatClient\bin\Debug\ChatClient.pdb
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.csprojAssemblyReference.cache
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.Form1.resources
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.exe
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.pdb
+E:\УНИВЕР\КСиС\chat\ChatClient\bin\Debug\CSfunction.dll
+E:\УНИВЕР\КСиС\chat\ChatClient\bin\Debug\CSfunction.pdb
+E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.csproj.CopyComplete

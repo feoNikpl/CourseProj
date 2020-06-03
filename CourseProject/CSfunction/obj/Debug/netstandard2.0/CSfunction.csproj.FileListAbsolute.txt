@@ -1,0 +1,8 @@
+E:\УНИВЕР\КСиС\chat\CSfunction\bin\Debug\netstandard2.0\CSfunction.deps.json
+E:\УНИВЕР\КСиС\chat\CSfunction\bin\Debug\netstandard2.0\CSfunction.dll
+E:\УНИВЕР\КСиС\chat\CSfunction\bin\Debug\netstandard2.0\CSfunction.pdb
+E:\УНИВЕР\КСиС\chat\CSfunction\obj\Debug\netstandard2.0\CSfunction.AssemblyInfoInputs.cache
+E:\УНИВЕР\КСиС\chat\CSfunction\obj\Debug\netstandard2.0\CSfunction.AssemblyInfo.cs
+E:\УНИВЕР\КСиС\chat\CSfunction\obj\Debug\netstandard2.0\CSfunction.dll
+E:\УНИВЕР\КСиС\chat\CSfunction\obj\Debug\netstandard2.0\CSfunction.pdb
+E:\УНИВЕР\КСиС\chat\CSfunction\obj\Debug\netstandard2.0\CSfunction.csprojAssemblyReference.cache
