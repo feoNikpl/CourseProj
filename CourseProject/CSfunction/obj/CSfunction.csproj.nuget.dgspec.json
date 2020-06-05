@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\УНИВЕР\\КСиС\\chat\\CSfunction\\CSfunction.csproj": {}
+    "E:\\УНИВЕР\\КСиС\\CourseProject\\CSfunction\\CSfunction.csproj": {}
   },
   "projects": {
-    "E:\\УНИВЕР\\КСиС\\chat\\CSfunction\\CSfunction.csproj": {
+    "E:\\УНИВЕР\\КСиС\\CourseProject\\CSfunction\\CSfunction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\УНИВЕР\\КСиС\\chat\\CSfunction\\CSfunction.csproj",
+        "projectUniqueName": "E:\\УНИВЕР\\КСиС\\CourseProject\\CSfunction\\CSfunction.csproj",
         "projectName": "CSfunction",
-        "projectPath": "E:\\УНИВЕР\\КСиС\\chat\\CSfunction\\CSfunction.csproj",
+        "projectPath": "E:\\УНИВЕР\\КСиС\\CourseProject\\CSfunction\\CSfunction.csproj",
         "packagesPath": "C:\\Users\\feopl\\.nuget\\packages\\",
-        "outputPath": "E:\\УНИВЕР\\КСиС\\chat\\CSfunction\\obj\\",
+        "outputPath": "E:\\УНИВЕР\\КСиС\\CourseProject\\CSfunction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\feopl\\AppData\\Roaming\\NuGet\\NuGet.Config",

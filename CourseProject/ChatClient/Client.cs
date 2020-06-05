@@ -30,6 +30,8 @@ namespace ChatClient
         private string DownloadFile;
         private Socket UploadSocket;
         private List<DownloadClient> clients;
+        private const bool SET = true;
+        private const bool DELETE = false;
         private const string DownloadDirr = "C:\\Users\\feopl\\Desktop\\сохранить\\";
         private const string UploadDirr = "C:\\Users\\feopl\\Desktop\\загрузить\\";
 
@@ -131,8 +133,6 @@ namespace ChatClient
                 }
                 catch (Exception ex)
                 {
-                    GeneralFunction.CloseThread(ref ListenDowloadThread);
-                    GeneralFunction.CloseSocket(ref DownloadSocket);
                 }
 
             }
@@ -196,6 +196,7 @@ namespace ChatClient
                 DownloadClient client;
                 client = new DownloadClient(RegMessage.Id , ConectedSocket, serializer);
                 client.messageManager += UploadMessageManager;
+                client.ClientDisconnectedEvent += RemoveConnection;
                 clients.Add(client);
             }
         }
@@ -216,6 +217,14 @@ namespace ChatClient
         public void FileListMessageManager(FileListMessage message) 
         {
             FileSets = message.FileSetsList;
+            foreach(FileSet file in FileSets)
+            {
+                if (!File.Exists(UploadDirr + file.FileName))
+                {
+                    SendMessage(file.FileName, DELETE);
+                    break;
+                } 
+            }
         }
         public void ClientIDMessageManager(ClientIDMessage message)
         {
@@ -225,8 +234,14 @@ namespace ChatClient
         public void ClientEndpointManager(ClientEndpoint message)
         {
             DownloadSocket.Connect(message.ClientEndPoint);
-            DownloadSocket.Send(serializer.Serialize(new ClientIDMessage(ClientIP, ClientID)));
-            DownloadSocket.Send(serializer.Serialize(new FileDownloadRequest(ClientIP, message.FileName, ClientID)));
+            if (DownloadSocket.Connected)
+            {
+                Thread.Sleep(2000);
+                DownloadSocket.Send(serializer.Serialize(new ClientIDMessage(ClientIP, ClientID)));
+                Thread.Sleep(2000);
+                DownloadSocket.Send(serializer.Serialize(new FileDownloadRequest(ClientIP, message.FileName, ClientID)));
+            }
+            
         }
 
         public void SerwerAnswerRequest(ServerAnswerRequest message)
@@ -245,6 +260,7 @@ namespace ChatClient
         {
             DownloadFile = message.FileName;
             FileStream File = new FileStream(DownloadDirr + DownloadFile, FileMode.Create);
+            File.Close();
         }
 
         public void FilePartManager(FilePartMessage message)
@@ -253,7 +269,18 @@ namespace ChatClient
             {
                 byte[] array = message.Data;
                 File.Write(array, 0, array.Length);
+                File.Close();
             }
+            string extention = Path.GetExtension(DownloadDirr + DownloadFile);
+            if (extention == ".jpeg" || extention == ".jpg")
+            {
+                RLE RLE = new RLE();
+                RLE.FileCompression(DownloadDirr + DownloadFile);
+            }
+            DownloadSocket.Shutdown(SocketShutdown.Both);
+            DownloadSocket.Close();
+            DownloadSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
         }
 
         //работа клиента при соединении с другим клиентом в качестве сервера
@@ -278,19 +305,22 @@ namespace ChatClient
             if (File.Exists(UploadDirr + message.FileName) && downloadClient != null)
             {
                 downloadClient.tcpSocket.Send(serializer.Serialize(new FileHeadderMessage(ClientIP, message.FileName)));
+                int bytes = 0;
                 using (FileStream File = new FileStream(UploadDirr + message.FileName, FileMode.Open))
                 {
-                    byte[] arr = new byte[SIZE];
-                    do
-                    {
-                        File.Read(arr,0,SIZE);
-                        downloadClient.tcpSocket.Send(serializer.Serialize(new FilePartMessage(ClientIP, arr)));
-                    }
-                    while (File.CanRead);
+                    byte[] arr = new byte[File.Length];
+                    File.Read(arr,bytes,arr.Length);
+                    downloadClient.tcpSocket.Send(serializer.Serialize(new FilePartMessage(ClientIP, arr)));
                 }
-                GeneralFunction.CloseSocket(ref downloadClient.tcpSocket);
-                GeneralFunction.CloseThread(ref downloadClient.listenTcpThread);
             }
+            RemoveConnection(downloadClient);
+
+        }
+        public void RemoveConnection(DownloadClient disconnectedClient)
+        {
+            clients.Remove(disconnectedClient);
+            GeneralFunction.CloseSocket(ref disconnectedClient.tcpSocket);
+            GeneralFunction.CloseThread(ref disconnectedClient.listenTcpThread);
         }
 
         //Отправка сообщений Серверу
@@ -334,6 +364,10 @@ namespace ChatClient
             GeneralFunction.CloseThread(ref ListenDowloadThread);
             GeneralFunction.CloseSocket(ref UploadSocket);
             GeneralFunction.CloseThread(ref ListenUploadThread);
+        }
+        ~Client()
+        {
+            Disconnect();
         }
     }
 }

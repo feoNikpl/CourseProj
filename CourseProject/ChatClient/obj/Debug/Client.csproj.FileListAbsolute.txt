@@ -10,3 +10,15 @@ E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\Client.csproj.GenerateResourc
 E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\Client.csproj.CopyComplete
 E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.exe
 E:\УНИВЕР\КСиС\chat\ChatClient\obj\Debug\ChatClient.pdb
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\bin\Debug\CSfunction.dll
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\bin\Debug\CSfunction.pdb
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\Client.csprojAssemblyReference.cache
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\ChatClient.Form1.resources
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\Client.csproj.GenerateResource.cache
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\ChatClient.exe
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\ChatClient.pdb
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\bin\Debug\ChatClient.exe.config
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\bin\Debug\ChatClient.exe
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\bin\Debug\ChatClient.pdb
+E:\УНИВЕР\КСиС\CourseProject\ChatClient\obj\Debug\Client.csproj.CopyComplete

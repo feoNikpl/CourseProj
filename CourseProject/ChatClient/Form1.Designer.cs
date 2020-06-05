@@ -173,7 +173,7 @@
             this.DeleteFile.Name = "DeleteFile";
             this.DeleteFile.Size = new System.Drawing.Size(121, 23);
             this.DeleteFile.TabIndex = 21;
-            this.DeleteFile.Text = "Добавить";
+            this.DeleteFile.Text = "Удалить";
             this.DeleteFile.UseVisualStyleBackColor = true;
             this.DeleteFile.Click += new System.EventHandler(this.DeleteFile_Click);
             // 
@@ -202,6 +202,7 @@
             this.Controls.Add(this.DownloadFile);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

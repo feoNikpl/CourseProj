@@ -19,6 +19,8 @@ namespace ChatClient
         private Serializer serializer;
         public delegate void UploadMessageManager(Message message);
         public event UploadMessageManager messageManager;
+        public delegate void ClientDisconnected(DownloadClient client);
+        public event ClientDisconnected ClientDisconnectedEvent;
 
         public DownloadClient(int id, Socket socket, Serializer serializer)
         {
@@ -55,6 +57,7 @@ namespace ChatClient
                 catch (SocketException)
 
                 {
+                    ClientDisconnectedEvent(this);
                     GeneralFunction.CloseSocket(ref tcpSocket);
                     GeneralFunction.CloseThread(ref listenTcpThread);
                 }
