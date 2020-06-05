@@ -23,7 +23,7 @@ namespace ChatServer
         private Thread listenTcpThread;
         private List<Client> clients;
         private SqlConnection connection;
-        private const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\УНИВЕР\КСиС\chat\ChatServer\Database1.mdf;Integrated Security=True";
+        private const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\УНИВЕР\КСиС\CourseProject\ChatServer\Database1.mdf;Integrated Security=True";
         private const int NOTFOUND = -1;
         private const bool SET = true;
         public Server()
@@ -119,7 +119,7 @@ namespace ChatServer
                 client.messageManager += MessageManager;
                 client.ClientDisconnectedEvent += RemoveConnection;
                 clients.Add(client);
-                Console.WriteLine(RegMessage.Name + " join chat");
+                Console.WriteLine(RegMessage.Name + " join server");
                 SendMessageClient( new ClientIDMessage(RegMessage.SenderAddress,client.id), client);
                 SendMessageToAll(new FileListMessage(ServerIP,GetFileSet()));
             }
@@ -195,7 +195,7 @@ namespace ChatServer
         public void RemoveConnection(Client disconnectedClient)
         {
             if (clients.Remove(disconnectedClient))
-                Console.WriteLine(disconnectedClient.name + " left from the chat!");
+                Console.WriteLine(disconnectedClient.name + " left from the server!");
             SendMessageToAll(new FileListMessage(ServerIP, GetFileSet()));
         }
 
@@ -230,7 +230,7 @@ namespace ChatServer
 
         public void DeletefromDB(FileTaskMessage message)
         {
-            string sql = "DELETE FROM Files WHER FileName = '" + message.FileName + "'";
+            string sql = "DELETE FROM Files WHERE FileName = '" + message.FileName + "'";
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.InsertCommand = new SqlCommand(sql, connection);
             adapter.InsertCommand.ExecuteNonQuery();

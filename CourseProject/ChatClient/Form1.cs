@@ -145,8 +145,8 @@ namespace ChatClient
         private void ClientFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             DownloadFile.Enabled = false;
-            SelectIndex = UsersFiles.SelectedIndex;
-            FileName = UsersFiles.Items[SelectIndex].ToString();
+            SelectIndex = ClientFiles.SelectedIndex;
+            FileName = ClientFiles.Items[SelectIndex].ToString();
         }
 
         private void UdpConnect_Click(object sender, EventArgs e)
@@ -168,7 +168,13 @@ namespace ChatClient
                 return;
             string filepath = openFileDialog1.FileName;
             string filename = Path.GetFileName(openFileDialog1.FileName);
+            string extention = Path.GetExtension(filepath);
             File.Copy(filepath, UploadDirr + filename);
+            if (extention == ".jpeg" || extention == ".jpg")
+            {
+                RLE RLE = new RLE();
+                RLE.FileCompression(UploadDirr + filename);
+            }
             client.SendMessage(filename, SET);
         }
 
@@ -177,6 +183,7 @@ namespace ChatClient
             File.Delete(UploadDirr + FileName);
             client.SendMessage(FileName, DELETE);
         }
+
     }
 }
 

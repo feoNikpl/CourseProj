@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CSfunction
 {
+    [Serializable]
     public class FilePartMessage:Message
     {
         public byte[] Data;
